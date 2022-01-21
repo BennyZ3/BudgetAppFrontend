@@ -10,7 +10,7 @@ class Nav extends Component {
           <h1 className="logo">Budget App</h1>
           {/* <div className="homeButton">HOME</div> */}
         </Link>
-        <Link to="/transactions/new">
+        <Link to="/new">
           <button className="new">NEW TRANSACTION</button>
         </Link>
       </div>
