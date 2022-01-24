@@ -6,7 +6,7 @@ function EditTransaction() {
   const navigate = useNavigate();
   const params = useParams();
   const [transaction, setTransaction] = useState({});
-  const URL = process.env.REACT_APP_API_URL + `/transactions/${params.id}`;
+  const URL = `http://localhost:3003/transactions/${params.id}`;
   useEffect(() => {
     axios.get(URL).then((response) => {
       setTransaction(response.data);

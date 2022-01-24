@@ -7,7 +7,7 @@ function TransactionDetails() {
   const params = useParams();
   const [transaction, setTransactions] = useState({});
   console.log(params.id);
-  const URL = process.env.REACT_APP_API_URL + `/transactions/${params.id}`;
+  const URL = `http://localhost:3003/transactions/${params.id}`;
   useEffect(() => {
     axios.get(URL).then((response) => {
       setTransactions(response.data);

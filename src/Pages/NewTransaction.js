@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function NewTransaction() {
   const navigate = useNavigate();
-  const URL = process.env.REACT_APP_API_URL + `/transactions`;
+  const URL = `http://localhost:3003/transactions`;
   const [transaction, setTransaction] = useState({
     date: "",
     source: "",
