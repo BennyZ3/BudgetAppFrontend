@@ -16,7 +16,7 @@ function NewTransaction() {
   const handleChange = (event) => {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
     if (event.target.id === "category") {
-      console.log(transaction.amount);
+      //   console.log(transaction.amount);
       if (event.target.value === "income") {
         if (Number(transaction.amount) < 0) {
           setTransaction({ ...transaction, amount: -transaction.amount });
@@ -58,6 +58,7 @@ function NewTransaction() {
         <label for="amount">Amount</label>
         <input
           type="number"
+          step="0.01"
           id="amount"
           name="amount"
           onChange={handleChange}

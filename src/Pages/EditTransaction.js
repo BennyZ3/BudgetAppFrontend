@@ -61,6 +61,7 @@ function EditTransaction() {
         <label for="amount">Amount</label>
         <input
           type="number"
+          step="0.01"
           id="amount"
           name="amount"
           value={transaction.amount}
