@@ -4,7 +4,7 @@ import TransactionTable from "../Components/TransactionsTable";
 
 function Home() {
   const [transactions, setTransactions] = useState([]);
-  const URL = `http://localhost:3003/transactions`;
+  const URL = process.env.REACT_APP_API_URL + `/transactions`;
 
   useEffect(() => {
     axios.get(URL).then((response) => {
