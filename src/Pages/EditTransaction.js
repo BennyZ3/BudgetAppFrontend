@@ -1,18 +1,18 @@
 import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-// import NewTransactionForm from "../Components/NewTransactionForm";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-function NewTransaction() {
+function EditTransaction() {
   const navigate = useNavigate();
-  const URL = `http://localhost:3003/transactions`;
-  const [transaction, setTransaction] = useState({
-    date: "",
-    source: "",
-    amount: "",
-    item_name: "",
-    category: "",
-  });
+  const params = useParams();
+  const [transaction, setTransaction] = useState({});
+  const URL = `http://localhost:3003/transactions/${params.id}`;
+  useEffect(() => {
+    axios.get(URL).then((response) => {
+      setTransaction(response.data);
+    });
+  }, []);
+
   const handleChange = (event) => {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
     if (event.target.id === "category") {
@@ -28,22 +28,23 @@ function NewTransaction() {
       }
     }
   };
-
-  // Create new item with post and navigate back to home
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post(URL, transaction).then(() => navigate("/"));
+    axios
+      .put(URL, transaction)
+      .then(() => navigate(`/transactions/${params.id}`));
   };
 
   return (
-    <div className="newTransaction">
-      <h1>Add a new item</h1>
+    <div className="edittransaction">
+      <h1>Edit</h1>
       <form onSubmit={handleSubmit}>
         <label for="date">Date</label>
         <input
           type="date"
           id="date"
           name="date"
+          value={transaction.date}
           onChange={handleChange}
           required
         />
@@ -52,6 +53,7 @@ function NewTransaction() {
           type="text"
           id="item_name"
           name="name"
+          value={transaction.item_name}
           onChange={handleChange}
           required
         />
@@ -60,6 +62,7 @@ function NewTransaction() {
           type="number"
           id="amount"
           name="amount"
+          value={transaction.amount}
           onChange={handleChange}
           required
         />
@@ -68,6 +71,7 @@ function NewTransaction() {
           type="text"
           id="source"
           name="source"
+          value={transaction.source}
           onChange={handleChange}
           required
         />
@@ -76,6 +80,7 @@ function NewTransaction() {
           type="category"
           id="category"
           name="category"
+          value={transaction.category}
           onChange={handleChange}
           required
         >
@@ -102,4 +107,4 @@ function NewTransaction() {
   );
 }
 
-export default NewTransaction;
+export default EditTransaction;
