@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import NewTransactionForm from "../Components/NewTransactionForm";
+import "./NewTransaction.css";
 
 function NewTransaction() {
   const navigate = useNavigate();
@@ -52,6 +52,7 @@ function NewTransaction() {
           id="item_name"
           name="name"
           onChange={handleChange}
+          placeholder="name"
           required
         />
         <label for="amount">Amount</label>
@@ -60,6 +61,7 @@ function NewTransaction() {
           step="0.01"
           id="amount"
           name="amount"
+          placeholder="amount"
           onChange={handleChange}
           required
         />
@@ -68,6 +70,7 @@ function NewTransaction() {
           type="text"
           id="source"
           name="source"
+          placeholder="from"
           onChange={handleChange}
           required
         />
@@ -96,7 +99,7 @@ function NewTransaction() {
             <option value="bills">Bills</option>
           </optgroup>
         </select>
-        <button type="submit">Submit</button>
+        <button type="submit">CREATE NEW ITEM</button>
       </form>
     </div>
   );

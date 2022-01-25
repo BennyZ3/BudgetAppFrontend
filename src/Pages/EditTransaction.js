@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
+import "./NewTransaction.css";
 function EditTransaction() {
   const navigate = useNavigate();
   const params = useParams();
@@ -103,7 +103,7 @@ function EditTransaction() {
             <option value="bills">Bills</option>
           </optgroup>
         </select>
-        <button type="submit">Submit</button>
+        <button type="submit">SUBMIT</button>
       </form>
     </div>
   );
