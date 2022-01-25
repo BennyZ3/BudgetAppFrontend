@@ -18,13 +18,20 @@ function TransactionDetails() {
   const handleDelete = () => {
     axios.delete(URL).then(() => navigate("/"));
   };
+  const upperCasing = (string) => {
+    string = string.split("");
+    string[0] = string[0].toUpperCase();
+    return string.join("");
+  };
   return (
     <div className="transactionDetails">
       <h1>{transaction.item_name}</h1>
       <h3>From: {transaction.source}</h3>
       <h3>Date: {transaction.date}</h3>
       <h3>Amount: {transaction.amount}</h3>
-      {transaction.category && <h2>Category: {transaction.category}</h2>}
+      {transaction.category && (
+        <h2>Category: {upperCasing(transaction.category)}</h2>
+      )}
       <Link to={`/transactions/${params.id}/edit`}>
         <button>Edit</button>
       </Link>
