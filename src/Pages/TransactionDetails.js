@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import "./TransactionDetails.css";
 
 function TransactionDetails() {
   const params = useParams();
@@ -19,10 +20,10 @@ function TransactionDetails() {
   };
   return (
     <div className="transactionDetails">
-      <h2>{transaction.item_name}</h2>
-      <h2>From: {transaction.source}</h2>
-      <h2>Date: {transaction.date}</h2>
-      <h2>Amount: {transaction.amount}</h2>
+      <h1>{transaction.item_name}</h1>
+      <h3>From: {transaction.source}</h3>
+      <h3>Date: {transaction.date}</h3>
+      <h3>Amount: {transaction.amount}</h3>
       {transaction.category && <h2>Category: {transaction.category}</h2>}
       <Link to={`/transactions/${params.id}/edit`}>
         <button>Edit</button>

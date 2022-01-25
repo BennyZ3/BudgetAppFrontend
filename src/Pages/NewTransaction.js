@@ -97,6 +97,7 @@ function NewTransaction() {
           </optgroup>
           <optgroup label="Other">
             <option value="bills">Bills</option>
+            <option value="savings">Savings/Investment</option>
           </optgroup>
         </select>
         <button type="submit">CREATE NEW ITEM</button>
