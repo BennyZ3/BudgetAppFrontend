@@ -6,7 +6,7 @@ function EditTransaction() {
   const navigate = useNavigate();
   const params = useParams();
   const [transaction, setTransaction] = useState({});
-  const URL = `http://localhost:3003/transactions/${params.id}`;
+  const URL = process.env.REACT_APP_API_URL + `/transactions/${params.id}`;
   useEffect(() => {
     axios.get(URL).then((response) => {
       setTransaction(response.data);
@@ -100,7 +100,7 @@ function EditTransaction() {
             <option value="shopping">Online Shopping</option>
           </optgroup>
           <optgroup label="Other">
-            <option value="taxes">Taxes</option>
+            <option value="bills">Bills</option>
           </optgroup>
         </select>
         <button type="submit">Submit</button>

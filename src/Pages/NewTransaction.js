@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function NewTransaction() {
   const navigate = useNavigate();
-  const URL = `http://localhost:3003/transactions`;
+  const URL = process.env.REACT_APP_API_URL + `/transactions`;
   const [transaction, setTransaction] = useState({
     date: "",
     source: "",
@@ -16,7 +16,6 @@ function NewTransaction() {
   const handleChange = (event) => {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
     if (event.target.id === "category") {
-      //   console.log(transaction.amount);
       if (event.target.value === "income") {
         if (Number(transaction.amount) < 0) {
           setTransaction({ ...transaction, amount: -transaction.amount });
@@ -94,7 +93,7 @@ function NewTransaction() {
             <option value="shopping">Online Shopping</option>
           </optgroup>
           <optgroup label="Other">
-            <option value="taxes">Taxes</option>
+            <option value="bills">Bills</option>
           </optgroup>
         </select>
         <button type="submit">Submit</button>
