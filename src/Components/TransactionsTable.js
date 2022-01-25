@@ -15,7 +15,7 @@ class TransactionTable extends Component {
           <th>Amount</th>
           {this.props.transactions.map((item, index) => {
             return (
-              <tr>
+              <tr className="sourceTable">
                 <td>{item.date}</td>
                 <Link to={`/transactions/${index}`}>
                   <td>{item.source}</td>

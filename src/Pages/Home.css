@@ -1,0 +1,37 @@
+.Home {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.Home .breakdown {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 5% 0 5%;
+}
+
+.Home .transactionTable {
+  margin: 0 5% 0 5%;
+  text-align: left;
+}
+a:hover,
+a:visited,
+a:active,
+a {
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 10px;
+}
+
+.sourceTable {
+  border-bottom: 2px solid #e1e1e1;
+  margin-top: 2px;
+}
+.Home table {
+  width: 90%;
+}

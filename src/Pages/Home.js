@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import TransactionTable from "../Components/TransactionsTable";
-
+import "./Home.css";
 function Home() {
   const [transactions, setTransactions] = useState([]);
   const URL = process.env.REACT_APP_API_URL + `/transactions`;
@@ -36,9 +36,13 @@ function Home() {
   }
   return (
     <div className="Home">
-      <h1>Balance: {accountBalance(transactions)}</h1>
-      <h3>Earnings: {earnings(transactions)}</h3>
-      <h3>Expenses: {expenses(transactions)}</h3>
+      <div className="balance">
+        <h1>Balance: {accountBalance(transactions)}</h1>
+      </div>
+      <div className="breakdown">
+        <h3>Earnings: {earnings(transactions)}</h3>
+        <h3>Expenses: {Math.abs(expenses(transactions))}</h3>
+      </div>
       <TransactionTable transactions={transactions} />
     </div>
   );
