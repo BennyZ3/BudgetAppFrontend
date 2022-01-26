@@ -18,11 +18,19 @@ function NewTransaction() {
     if (event.target.id === "category") {
       if (event.target.value === "income") {
         if (Number(transaction.amount) < 0) {
-          setTransaction({ ...transaction, amount: -transaction.amount });
+          setTransaction({
+            ...transaction,
+            amount: -transaction.amount,
+            category: event.target.value,
+          });
         }
       } else {
         if (Number(transaction.amount) > 0) {
-          setTransaction({ ...transaction, amount: -transaction.amount });
+          setTransaction({
+            ...transaction,
+            amount: -transaction.amount,
+            category: event.target.value,
+          });
         }
       }
     }
