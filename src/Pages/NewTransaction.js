@@ -100,6 +100,13 @@ function NewTransaction() {
             <option value="savings">Savings/Investment</option>
           </optgroup>
         </select>
+        <label for="confirm">Confirm </label>
+        <input
+          type="checkbox"
+          name="confirm"
+          onChange={handleChange}
+          required
+        ></input>
         <button type="submit">CREATE NEW ITEM</button>
       </form>
     </div>

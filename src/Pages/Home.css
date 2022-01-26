@@ -35,3 +35,14 @@ td {
 .Home table {
   width: 90%;
 }
+
+.Home .infoContainer {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+
+.Home .rewards {
+  font-size: 12px;
+  line-height: 7px;
+  border: 1px solid gold;
+}

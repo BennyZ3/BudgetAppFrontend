@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import SpendingRewards from "../Components/SpendingRewards";
 import TransactionTable from "../Components/TransactionsTable";
 import "./Home.css";
 function Home() {
@@ -36,12 +37,17 @@ function Home() {
   }
   return (
     <div className="Home">
-      <div className="balance">
-        <h1>Balance: {accountBalance(transactions)}</h1>
-      </div>
-      <div className="breakdown">
-        <h3>Earnings: {earnings(transactions)}</h3>
-        <h3>Expenses: {Math.abs(expenses(transactions))}</h3>
+      <div className="infoContainer">
+        <div className="balanceContainer">
+          <div className="balance">
+            <h1>Balance: ${accountBalance(transactions).toFixed(2)}</h1>
+          </div>
+          <div className="breakdown">
+            <h3>Earnings: ${earnings(transactions).toFixed(2)}</h3>
+            <h3>Expenses: ${Math.abs(expenses(transactions)).toFixed(2)}</h3>
+          </div>
+        </div>
+        <SpendingRewards transactions={transactions} />
       </div>
       <TransactionTable transactions={transactions} />
     </div>
