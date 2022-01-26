@@ -34,6 +34,7 @@ class SpendingRewards extends Component {
     });
     return (
       <div>
+        <h4>Credit Rewards:</h4>
         <p>Restaurants(3%): {result.restaurants.toFixed(2)}</p>
         <p>Grocery(2%): {result.grocery.toFixed(2)}</p>
         <p>Shopping(1%): {result.shopping.toFixed(2)}</p>

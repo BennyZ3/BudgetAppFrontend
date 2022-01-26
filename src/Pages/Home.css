@@ -38,7 +38,7 @@ td {
 
 .Home .infoContainer {
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns: 4fr 1.25fr;
 }
 
 .Home .rewards {
